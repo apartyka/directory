@@ -1,0 +1,19 @@
+{
+  "name": "updox-ui-code-challenge",
+  "version": "1.0.0",
+  "description": "Project files for Updox UI coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apartyka/updox-ui-code-challenge.git"
+  },
+  "author": "Adam Partyka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apartyka/updox-ui-code-challenge/issues"
+  },
+  "homepage": "https://github.com/apartyka/updox-ui-code-challenge#readme"
+}
