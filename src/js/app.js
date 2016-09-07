@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const _ = require('lodash');
 
-const ProviderList = require('./ProviderList');
+const ProviderList = require('./providerList');
 
 const PROVIDERS = [
   {
