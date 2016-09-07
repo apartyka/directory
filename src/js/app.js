@@ -1,7 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-const DATA = [
+const PROVIDERS = [
   {
   	"last_name": "Harris",
   	"first_name": "Mike",
@@ -49,11 +49,40 @@ const DATA = [
 class App extends React.Component {
   componentWillMount() {
     this.setState({
-      data: DATA
+      providers: PROVIDERS
     });
   }
 
   render() {
+    var providers = this.state.providers;
+    providers = providers.map((provider, index) => {
+      return (
+        <li
+          key={index}
+          className="provider media"
+        >
+          <div className="provider-info media-body">
+            <div className="heading">
+              <span className="name">
+                {this.state.providers[index].last_name}, {this.state.providers[index].first_name}
+              </span>
+              <span className="specialty pull-right">
+                {this.state.providers[index].specialty}
+              </span>
+            </div>
+            <div className="sub-heading">
+              <span className="email">
+                {this.state.providers[index].email_address}
+              </span>
+              <span className="practice-name pull-right">
+                {this.state.providers[index].practice_name}
+              </span>
+            </div>
+          </div>
+        </li>
+      )
+    });
+
     return (
     	<div className="col-sm-12">
         Hello {this.props.name}
@@ -63,26 +92,7 @@ class App extends React.Component {
         <div className="row">
           <div className="col-sm-12">
             <ul className="providers media-list">
-              <li className="provider media">
-                <div className="provider-info media-body">
-                  <div className="heading">
-                    <span className="name">
-                      {this.state.data[0].last_name}, {this.state.data[0].first_name}
-                    </span>
-                    <span className="specialty pull-right">
-                      {this.state.data[0].specialty}
-                    </span>
-                  </div>
-                  <div className="sub-heading">
-                    <span className="email">
-                      {this.state.data[0].email_address}
-                    </span>
-                    <span className="practice-name pull-right">
-                      {this.state.data[0].practice_name}
-                    </span>
-                  </div>
-                </div>
-              </li>
+              {providers}
             </ul>
           </div>
         </div>
