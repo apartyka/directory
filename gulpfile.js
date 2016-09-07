@@ -6,7 +6,7 @@ const src = './src';
 const app = './build/app';
 
 gulp.task('js', function() {
-  return gulp.src(src + '/js/App.js')
+  return gulp.src(src + '/js/app.js')
     .pipe(browserify({
       transform: 'reactify',
       debug: true
