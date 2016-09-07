@@ -17,7 +17,12 @@ header .page-header {
   border-bottom-color: #286090;
   border-radius: 0;
   padding: 10px 0;
-  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .navbar-default {
+    text-align: center;
+  }
 }
 
 .add-provider {}
