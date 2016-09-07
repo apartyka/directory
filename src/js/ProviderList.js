@@ -1,18 +1,18 @@
 const React = require('react');
 
 class ProviderList extends React.Component {
-  render() {
-    const removeProvider = () => {
-      this.props.onRemove(this.props.selectedProvider);
-    };
+  removeProvider() {
+    this.props.onRemove(this.props.selectedProvider);
+  }
 
+  render() {
     return(
       <li className="provider">
         <div className="remove media-left">
           <a
             role="button"
             className="btn btn-xs btn-danger"
-            onClick={removeProvider}
+            onClick={this.removeProvider.bind(this)}
             title={`Remove ${this.props.providers.last_name}, ${this.props.providers.first_name}`}
           >
             <span className="glyphicon glyphicon-remove"></span>
