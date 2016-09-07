@@ -1,6 +1,8 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+const ProviderList = require('./ProviderList');
+
 const PROVIDERS = [
   {
   	"last_name": "Harris",
@@ -57,29 +59,10 @@ class App extends React.Component {
     var providers = this.state.providers;
     providers = providers.map((provider, index) => {
       return (
-        <li
+        <ProviderList
           key={index}
-          className="provider media"
-        >
-          <div className="provider-info media-body">
-            <div className="heading">
-              <span className="name">
-                {this.state.providers[index].last_name}, {this.state.providers[index].first_name}
-              </span>
-              <span className="specialty pull-right">
-                {this.state.providers[index].specialty}
-              </span>
-            </div>
-            <div className="sub-heading">
-              <span className="email">
-                {this.state.providers[index].email_address}
-              </span>
-              <span className="practice-name pull-right">
-                {this.state.providers[index].practice_name}
-              </span>
-            </div>
-          </div>
-        </li>
+          providers={provider}
+        />
       )
     });
 
