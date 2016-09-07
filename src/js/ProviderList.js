@@ -2,8 +2,22 @@ const React = require('react');
 
 class ProviderList extends React.Component {
   render() {
+    const removeProvider = () => {
+      this.props.onRemove(this.props.selectedProvider);
+    };
+
     return(
       <li className="provider">
+        <div className="remove media-left">
+          <a
+            role="button"
+            className="btn btn-xs btn-danger"
+            onClick={removeProvider}
+            title={`Remove ${this.props.providers.last_name}, ${this.props.providers.first_name}`}
+          >
+            <span className="glyphicon glyphicon-remove"></span>
+          </a>
+        </div>
         <div className="provider-info media-body">
           <div className="heading">
             <span className="name">

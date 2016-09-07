@@ -44,6 +44,18 @@ header .page-header {
   border-bottom: none;
 }
 
+.provider .remove {
+  visibility: hidden;
+}
+
+.provider:hover .remove {
+  visibility: visible;
+}
+
+.provider-info {
+  padding-right: 30px;
+}
+
 .provider .name {}
 
 .provider .specialty {}

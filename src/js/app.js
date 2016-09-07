@@ -1,5 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+const _ = require('lodash');
 
 const ProviderList = require('./ProviderList');
 
@@ -55,6 +56,15 @@ class App extends React.Component {
     });
   }
 
+  handleRemove(provider) {
+    const providers = this.state.providers;
+    const updatedProviderList = _.without(providers, provider);
+
+    this.setState({
+      providers: updatedProviderList
+    })
+  }
+
   render() {
     var providers = this.state.providers;
     providers = providers.map((provider, index) => {
@@ -62,6 +72,8 @@ class App extends React.Component {
         <ProviderList
           key={index}
           providers={provider}
+          selectedProvider={provider}
+          onRemove={this.handleRemove.bind(this)}
         />
       )
     });
