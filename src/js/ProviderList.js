@@ -3,7 +3,7 @@ const React = require('react');
 class ProviderList extends React.Component {
   render() {
     return(
-      <li className="provider media">
+      <li className="provider">
         <div className="provider-info media-body">
           <div className="heading">
             <span className="name">

@@ -67,17 +67,16 @@ class App extends React.Component {
     });
 
     return (
-    	<div className="col-sm-12">
-        Hello {this.props.name}
-        <div className="add-provider">
-          Add Provider form component...
-        </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <ul className="providers media-list">
-              {providers}
-            </ul>
+    	<div className="layout">
+        <div className="col-sm-4">
+          <div className="add-provider">
+            Add Provider form component...
           </div>
+        </div>
+        <div className="col-sm-8">
+          <ul className="providers media-list">
+            {providers}
+          </ul>
         </div>
       </div>
     );
@@ -85,6 +84,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App name="Adam" />,
+  <App />,
   document.getElementById('app')
 );

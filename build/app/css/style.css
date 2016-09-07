@@ -1,23 +1,50 @@
 body {
-  position: relative;
   font-size: 16px;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+header .page-header {
+  border: none;
+  margin: 0;
+}
+
+.navbar-default {
+  background-color: #d9edf7;
+  border-bottom-color: #286090;
+  border-radius: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
 .add-provider {}
 
 .providers {
-  margin-top: 20px;
+  border: 1px solid #eee;
 }
 
-.provider {}
+.provider {
+  border-bottom: 1px solid #d9edf7;
+  padding: 10px;
+}
+
+.provider:hover {
+  background-color: #d9edf7;
+}
+
+.provider:last-child {
+  border-bottom: none;
+}
 
 .provider .name {}
 
 .provider .specialty {}
 
 .provider .email,
-.provider .practice-name {}
+.provider .practice-name {
+  color: #969696;
+  font-size: 1.2rem;
+}
