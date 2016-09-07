@@ -2,7 +2,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const _ = require('lodash');
 
-const ProviderList = require('./providerList');
+const AddProvider = require('./AddProvider');
+const ProviderListItem = require('./ProviderList');
 
 const PROVIDERS = [
   {
@@ -69,7 +70,7 @@ class App extends React.Component {
     var providers = this.state.providers;
     providers = providers.map((provider, index) => {
       return (
-        <ProviderList
+        <ProviderListItem
           key={index}
           providers={provider}
           selectedProvider={provider}
@@ -80,10 +81,8 @@ class App extends React.Component {
 
     return (
     	<div className="layout">
-        <div className="col-sm-4">
-          <div className="add-provider">
-            Add Provider form component...
-          </div>
+        <div className="add-provider col-sm-4">
+          <AddProvider />
         </div>
         <div className="col-sm-8">
           <ul className="providers media-list">
