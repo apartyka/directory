@@ -88,6 +88,13 @@ class App extends React.Component {
     });
   }
 
+  handleOrderBy(orderBy, orderDir) {
+    this.setState({
+      orderBy: orderBy,
+      orderDir: orderDir
+    });
+  }
+
   render() {
     var orderBy = this.state.orderBy;
     var orderDir = this.state.orderDir;
@@ -121,6 +128,7 @@ class App extends React.Component {
           <SearchSortProvider
             orderBy={this.state.orderBy}
             orderDir={this.state.orderDir}
+            handleOrderBy={this.handleOrderBy.bind(this)}
           />
           <ul className="providers media-list">
             {providers}
