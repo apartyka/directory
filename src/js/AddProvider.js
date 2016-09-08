@@ -1,8 +1,9 @@
 const React = require('react');
 
 class AddProvider extends React.Component {
+  // Toggles display of the form via a passed function prop
   toggleDisplay() {
-    console.debug('toggleDisplay called');
+    this.props.handleFormDisplay();
   }
 
   handleAdd(e) {
@@ -11,12 +12,17 @@ class AddProvider extends React.Component {
   }
 
   render() {
+    // Use an inline style rule to handle the Form display
+    const formDisplay = {
+      display: this.props.formIsVisible ? 'block' : 'none'
+    };
+
     return(
       <div className="add-provider panel panel-primary">
         <h5 className="panel-heading" onClick={this.toggleDisplay.bind(this)}>
           <span className="glyphicon glyphicon-plus"></span> Add Provider
         </h5>
-        <div className="panel-body">
+        <div className="panel-body" style={formDisplay}>
           <h6>
             <span className="required-field" role="alert">*</span> = required field
           </h6>

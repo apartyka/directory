@@ -53,7 +53,8 @@ const PROVIDERS = [
 class App extends React.Component {
   componentWillMount() {
     this.setState({
-      providers: PROVIDERS
+      providers: PROVIDERS,
+      formIsVisible: false
     });
   }
 
@@ -64,6 +65,14 @@ class App extends React.Component {
     this.setState({
       providers: updatedProviderList
     })
+  }
+
+  handleFormDisplay() {
+    const visibility = !this.state.formIsVisible;
+
+    this.setState({
+      formIsVisible: visibility
+    });
   }
 
   render() {
@@ -82,7 +91,10 @@ class App extends React.Component {
     return (
     	<div className="layout">
         <div className="add-provider col-sm-4">
-          <AddProvider />
+          <AddProvider
+            formIsVisible={this.state.formIsVisible}
+            handleFormDisplay={this.handleFormDisplay.bind(this)}
+          />
         </div>
         <div className="col-sm-8">
           <h5>Provider List</h5>

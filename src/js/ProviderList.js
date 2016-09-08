@@ -1,6 +1,7 @@
 const React = require('react');
 
 class ProviderList extends React.Component {
+  // Toggles removing Providers via passed function as prop
   removeProvider() {
     this.props.onRemove(this.props.selectedProvider);
   }
