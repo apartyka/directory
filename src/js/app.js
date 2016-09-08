@@ -55,7 +55,9 @@ class App extends React.Component {
   componentWillMount() {
     this.setState({
       providers: PROVIDERS,
-      formIsVisible: false
+      formIsVisible: false,
+      orderBy: 'last_name',
+      orderDir: 'asc'
     });
   }
 
@@ -87,7 +89,14 @@ class App extends React.Component {
   }
 
   render() {
+    var orderBy = this.state.orderBy;
+    var orderDir = this.state.orderDir;
     var providers = this.state.providers;
+
+    providers = _.orderBy(providers, function(provider) {
+      return provider[orderBy].toLowerCase();
+    }, orderDir);
+
     providers = providers.map((provider, index) => {
       return (
         <ProviderListItem
