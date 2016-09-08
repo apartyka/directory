@@ -57,7 +57,8 @@ class App extends React.Component {
       providers: PROVIDERS,
       formIsVisible: false,
       orderBy: 'last_name',
-      orderDir: 'asc'
+      orderDir: 'asc',
+      query: ''
     });
   }
 
@@ -95,15 +96,35 @@ class App extends React.Component {
     });
   }
 
+  // Accepts query text from the SearchSortProvider and update state
+  handleSearch(q) {
+    this.setState({
+      query: q
+    });
+  }
+
   render() {
+    var providers = [];
     var orderBy = this.state.orderBy;
     var orderDir = this.state.orderDir;
-    var providers = this.state.providers;
+    var query = this.state.query;
+    var providersState = this.state.providers;
 
+    // Sort with user query if it exists, lets stick to just last_name
+    providersState.forEach((item) => {
+      var q = (item.last_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+
+      if(q) {
+        providers.push(item);
+      }
+    });
+
+    // Ordering
     providers = _.orderBy(providers, function(provider) {
       return provider[orderBy].toLowerCase();
     }, orderDir);
 
+    // Map provider data to the subcomponent
     providers = providers.map((provider, index) => {
       return (
         <ProviderListItem
@@ -129,6 +150,7 @@ class App extends React.Component {
             orderBy={this.state.orderBy}
             orderDir={this.state.orderDir}
             handleOrderBy={this.handleOrderBy.bind(this)}
+            handleSearch={this.handleSearch.bind(this)}
           />
           <ul className="providers media-list">
             {providers}

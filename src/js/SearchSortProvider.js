@@ -5,9 +5,15 @@ class SearchSortProvider extends React.Component {
   handleOrderBy(e) {
     this.props.handleOrderBy(e.target.id, this.props.orderDir);
   }
+
   // Same thing as orderBy only in reverse
   handleOrderDir(e) {
     this.props.handleOrderBy(this.props.orderBy, e.target.id);
+  }
+
+  // Use the event to tell our props what to search for
+  handleSearch(e) {
+    this.props.handleSearch(e.target.value);
   }
 
   render() {
@@ -18,10 +24,11 @@ class SearchSortProvider extends React.Component {
       <div className="search-providers">
         <div className="input-group">
           <input
-            placeholder="Search Provider List"
+            placeholder="Search Provider List by Last Name"
             type="text"
             className="form-control"
-            aria-label="Search Provider List"
+            aria-label="Search Provider List by Last Name"
+            onChange={this.handleSearch.bind(this)}
           />
           <div className="input-group-btn">
             <button
