@@ -44,10 +44,28 @@ class SearchSortProvider extends React.Component {
                 <li>
                   <a
                     href="#"
+                    id="first_name"
+                    onClick={this.handleOrderBy.bind(this)}
+                  >
+                    First Name {(orderBy === 'first_name') ? <span className="glyphicon glyphicon-ok"></span>: null}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
                     id="last_name"
                     onClick={this.handleOrderBy.bind(this)}
                   >
                     Last Name {(orderBy === 'last_name') ? <span className="glyphicon glyphicon-ok"></span>: null}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    id="email_address"
+                    onClick={this.handleOrderBy.bind(this)}
+                  >
+                    Email {(orderBy === 'email_address') ? <span className="glyphicon glyphicon-ok"></span>: null}
                   </a>
                 </li>
                 <li>
