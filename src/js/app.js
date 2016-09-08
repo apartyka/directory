@@ -85,6 +85,7 @@ class App extends React.Component {
           <AddProvider />
         </div>
         <div className="col-sm-8">
+          <h5>Provider List</h5>
           <ul className="providers media-list">
             {providers}
           </ul>

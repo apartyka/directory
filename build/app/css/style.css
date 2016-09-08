@@ -16,6 +16,14 @@ header .page-header {
   margin: 0;
 }
 
+.layout h5 {
+  padding: 10px 15px;
+}
+
+.layout h6 {
+  color: #969696;
+}
+
 .navbar-default {
   background-color: #d9edf7;
   border-bottom-color: #286090;
@@ -29,10 +37,27 @@ header .page-header {
   }
 }
 
-.add-provider {}
+.add-provider .panel-heading,
+.add-provider .btn-primary {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.add-provider .panel-heading:hover {
+  background-color: #286090;
+}
+
+.add-provider .required-field {
+  color: #a94442;
+}
+
+.add-provider .form {
+  padding-top: 10px;
+}
 
 .providers {
   border: 1px solid #eee;
+  border-radius: 4px;
 }
 
 .provider {
