@@ -75,6 +75,16 @@ class App extends React.Component {
     });
   }
 
+  handleAdd(newProvider) {
+    const providers = this.state.providers;
+
+    providers.unshift(newProvider);
+
+    this.setState({
+      providers: providers
+    });
+  }
+
   render() {
     var providers = this.state.providers;
     providers = providers.map((provider, index) => {
@@ -94,6 +104,7 @@ class App extends React.Component {
           <AddProvider
             formIsVisible={this.state.formIsVisible}
             handleFormDisplay={this.handleFormDisplay.bind(this)}
+            handleAdd={this.handleAdd.bind(this)}
           />
         </div>
         <div className="col-sm-8">

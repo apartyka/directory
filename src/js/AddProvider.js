@@ -6,9 +6,31 @@ class AddProvider extends React.Component {
     this.props.handleFormDisplay();
   }
 
+  clearForm() {
+    const fields = ['fName', 'lName', 'email', 'specialty', 'practiceName'];
+
+    fields.map(field => {
+      this.refs[field].value = '';
+    });
+  }
+
   handleAdd(e) {
+    // Nuke default event where a page refresh would occur onSubmit
     e.preventDefault();
-    console.debug('handleAdd called');
+
+    // Important: key name must match syntax used in json data
+    const formValues = {
+      first_name: this.refs.fName.value,
+      last_name: this.refs.lName.value,
+      email_address: this.refs.email.value,
+      specialty: this.refs.specialty.value,
+      practice_name: this.refs.practiceName.value
+    };
+
+    // Call Add method via passed function as props
+    this.props.handleAdd(formValues);
+     // Clear the values
+    this.clearForm();
   }
 
   render() {
