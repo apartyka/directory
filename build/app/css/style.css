@@ -23,8 +23,10 @@ header .page-header {
   margin: 0;
 }
 
-.layout h5 {
-  padding: 10px 15px;
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2.8rem;
+  }
 }
 
 .layout h6 {
@@ -42,6 +44,10 @@ header .page-header {
   .navbar-default {
     text-align: center;
   }
+}
+
+.add-provider .panel-heading {
+  padding: 7px;
 }
 
 .add-provider .panel-heading,
@@ -62,17 +68,48 @@ header .page-header {
   padding-top: 10px;
 }
 
+@media (max-width: 550px) {
+  .add-provider label,
+  .add-provider .form-control {
+    font-size: 1.2rem;
+  }
+}
+
 .providers {
   border: 1px solid #eee;
   border-radius: 4px;
+  margin-bottom: 40px;
+  max-height: 480px;
+  overflow-y: scroll;
 }
 
 .provider {
   border-bottom: 1px solid #d9edf7;
-  padding: 10px;
+}
+
+.provider .media-body {
+  border-left: none;
+  padding: 10px 20px 10px 15px;
+}
+
+@media (max-width: 768px) {
+  .provider .media-body {
+    padding: 8px 20px 8px 15px;
+  }
+}
+
+.provider .remove {
+  border-left: 1px solid #d9edf7;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.provider .remove .glyphicon {
+  color: #d9534f;
 }
 
 .provider:hover {
+  transition: all 0.2s ease-in;
   background-color: #d9edf7;
 }
 
@@ -80,24 +117,33 @@ header .page-header {
   border-bottom: none;
 }
 
-.provider .remove {
-  visibility: hidden;
+.provider .heading {
+  margin-bottom: 5px;
 }
 
-.provider:hover .remove {
-  visibility: visible;
+@media (max-width: 550px) {
+  .provider .heading {
+    font-size: 1.2rem;
+  }
 }
 
-.provider-info {
-  padding-right: 30px;
-}
-
-.provider .name {}
-
-.provider .specialty {}
-
-.provider .email,
-.provider .practice-name {
+.provider .sub-heading {
   color: #969696;
   font-size: 1.2rem;
+}
+
+@media (max-width: 550px) {
+  .provider .practice-name,
+  .provider .specialty {
+    float: none !important;
+    display: inherit;
+  }
+}
+
+.search-providers {
+  margin-bottom: 20px
+}
+
+.search-providers .dropdown-toggle {
+  transition: all 0.2s ease-in;
 }

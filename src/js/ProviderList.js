@@ -1,4 +1,4 @@
-const React = require('react');
+var React = require('react');
 
 class ProviderList extends React.Component {
   // Toggles removing Providers via passed function as prop
@@ -9,16 +9,6 @@ class ProviderList extends React.Component {
   render() {
     return(
       <li className="provider">
-        <div className="remove media-left">
-          <a
-            role="button"
-            className="btn btn-xs btn-danger"
-            onClick={this.removeProvider.bind(this)}
-            title={`Remove ${this.props.providers.last_name}, ${this.props.providers.first_name}`}
-          >
-            <span className="glyphicon glyphicon-remove"></span>
-          </a>
-        </div>
         <div className="provider-info media-body">
           <div className="heading">
             <span className="name">
@@ -36,6 +26,16 @@ class ProviderList extends React.Component {
               {this.props.providers.practice_name}
             </span>
           </div>
+        </div>
+        <div className="remove media-right">
+          <a
+            role="button"
+            className="btn btn-xs"
+            onClick={this.removeProvider.bind(this)}
+            title={`Remove ${this.props.providers.last_name}, ${this.props.providers.first_name}`}
+          >
+            <span className="glyphicon glyphicon-remove"></span>
+          </a>
         </div>
       </li>
     );

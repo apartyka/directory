@@ -1,4 +1,4 @@
-const React = require('react');
+var React = require('react');
 
 class AddProvider extends React.Component {
   // Toggles display of the form via a passed function prop
@@ -7,11 +7,11 @@ class AddProvider extends React.Component {
   }
 
   clearForm() {
-    const fields = ['fName', 'lName', 'email', 'specialty', 'practiceName'];
+    var fields = ['fName', 'lName', 'email', 'specialty', 'practiceName'];
 
-    fields.map(field => {
+    fields.map(function(field) {
       this.refs[field].value = '';
-    });
+    }.bind(this));
   }
 
   handleAdd(e) {
@@ -19,7 +19,7 @@ class AddProvider extends React.Component {
     e.preventDefault();
 
     // Important: key name must match syntax used in json data
-    const formValues = {
+    var formValues = {
       first_name: this.refs.fName.value,
       last_name: this.refs.lName.value,
       email_address: this.refs.email.value,
@@ -35,7 +35,7 @@ class AddProvider extends React.Component {
 
   render() {
     // Use an inline style rule to handle the Form display
-    const formDisplay = {
+    var formDisplay = {
       display: this.props.formIsVisible ? 'block' : 'none'
     };
 
@@ -62,7 +62,6 @@ class AddProvider extends React.Component {
                   className="form-control"
                   id="fName"
                   ref="fName"
-                  placeholder="First Name"
                   required
                 />
               </div>
@@ -77,7 +76,6 @@ class AddProvider extends React.Component {
                   className="form-control"
                   id="lName"
                   ref="lName"
-                  placeholder="Last Name"
                   required
                 />
               </div>
@@ -120,7 +118,6 @@ class AddProvider extends React.Component {
                 type="text"
                 className="form-control"
                 id="practiceName"
-                placeholder="Practice Name"
                 ref="practiceName"
               />
               </div>

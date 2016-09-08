@@ -1,11 +1,12 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const _ = require('lodash');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var _ = require('lodash');
 
-const AddProvider = require('./AddProvider');
-const ProviderListItem = require('./ProviderList');
+var AddProvider = require('./AddProvider');
+var ProviderListItem = require('./ProviderList');
+var SearchSortProvider = require('./SearchSortProvider');
 
-const PROVIDERS = [
+var PROVIDERS = [
   {
   	"last_name": "Harris",
   	"first_name": "Mike",
@@ -54,13 +55,16 @@ class App extends React.Component {
   componentWillMount() {
     this.setState({
       providers: PROVIDERS,
-      formIsVisible: false
+      formIsVisible: false,
+      orderBy: 'last_name',
+      orderDir: 'asc',
+      query: ''
     });
   }
 
   handleRemove(provider) {
-    const providers = this.state.providers;
-    const updatedProviderList = _.without(providers, provider);
+    var providers = this.state.providers;
+    var updatedProviderList = _.without(providers, provider);
 
     this.setState({
       providers: updatedProviderList
@@ -68,7 +72,7 @@ class App extends React.Component {
   }
 
   handleFormDisplay() {
-    const visibility = !this.state.formIsVisible;
+    var visibility = !this.state.formIsVisible;
 
     this.setState({
       formIsVisible: visibility
@@ -76,7 +80,7 @@ class App extends React.Component {
   }
 
   handleAdd(newProvider) {
-    const providers = this.state.providers;
+    var providers = this.state.providers;
 
     providers.unshift(newProvider);
 
@@ -85,9 +89,43 @@ class App extends React.Component {
     });
   }
 
+  handleOrderBy(orderBy, orderDir) {
+    this.setState({
+      orderBy: orderBy,
+      orderDir: orderDir
+    });
+  }
+
+  // Accepts query text from the SearchSortProvider and update state
+  handleSearch(q) {
+    this.setState({
+      query: q
+    });
+  }
+
   render() {
-    var providers = this.state.providers;
-    providers = providers.map((provider, index) => {
+    var providers = [];
+    var orderBy = this.state.orderBy;
+    var orderDir = this.state.orderDir;
+    var query = this.state.query;
+    var providersState = this.state.providers;
+
+    // Sort with user query if it exists, lets stick to just last_name
+    providersState.forEach(function(item) {
+      var q = (item.last_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+
+      if(q) {
+        providers.push(item);
+      }
+    }.bind(this));
+
+    // Ordering
+    providers = _.orderBy(providers, function(provider) {
+      return provider[orderBy].toLowerCase();
+    }, orderDir);
+
+    // Map provider data to the subcomponent
+    providers = providers.map(function(provider, index) {
       return (
         <ProviderListItem
           key={index}
@@ -96,7 +134,7 @@ class App extends React.Component {
           onRemove={this.handleRemove.bind(this)}
         />
       )
-    });
+    }.bind(this));
 
     return (
     	<div className="layout">
@@ -108,7 +146,12 @@ class App extends React.Component {
           />
         </div>
         <div className="col-sm-8">
-          <h5>Provider List</h5>
+          <SearchSortProvider
+            orderBy={this.state.orderBy}
+            orderDir={this.state.orderDir}
+            handleOrderBy={this.handleOrderBy.bind(this)}
+            handleSearch={this.handleSearch.bind(this)}
+          />
           <ul className="providers media-list">
             {providers}
           </ul>
