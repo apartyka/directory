@@ -1,12 +1,12 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const _ = require('lodash');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var _ = require('lodash');
 
-const AddProvider = require('./AddProvider');
-const ProviderListItem = require('./ProviderList');
-const SearchSortProvider = require('./SearchSortProvider');
+var AddProvider = require('./AddProvider');
+var ProviderListItem = require('./ProviderList');
+var SearchSortProvider = require('./SearchSortProvider');
 
-const PROVIDERS = [
+var PROVIDERS = [
   {
   	"last_name": "Harris",
   	"first_name": "Mike",
@@ -63,8 +63,8 @@ class App extends React.Component {
   }
 
   handleRemove(provider) {
-    const providers = this.state.providers;
-    const updatedProviderList = _.without(providers, provider);
+    var providers = this.state.providers;
+    var updatedProviderList = _.without(providers, provider);
 
     this.setState({
       providers: updatedProviderList
@@ -72,7 +72,7 @@ class App extends React.Component {
   }
 
   handleFormDisplay() {
-    const visibility = !this.state.formIsVisible;
+    var visibility = !this.state.formIsVisible;
 
     this.setState({
       formIsVisible: visibility
@@ -80,7 +80,7 @@ class App extends React.Component {
   }
 
   handleAdd(newProvider) {
-    const providers = this.state.providers;
+    var providers = this.state.providers;
 
     providers.unshift(newProvider);
 
@@ -111,13 +111,13 @@ class App extends React.Component {
     var providersState = this.state.providers;
 
     // Sort with user query if it exists, lets stick to just last_name
-    providersState.forEach((item) => {
+    providersState.forEach(function(item) {
       var q = (item.last_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
 
       if(q) {
         providers.push(item);
       }
-    });
+    }.bind(this));
 
     // Ordering
     providers = _.orderBy(providers, function(provider) {
@@ -125,7 +125,7 @@ class App extends React.Component {
     }, orderDir);
 
     // Map provider data to the subcomponent
-    providers = providers.map((provider, index) => {
+    providers = providers.map(function(provider, index) {
       return (
         <ProviderListItem
           key={index}
@@ -134,7 +134,7 @@ class App extends React.Component {
           onRemove={this.handleRemove.bind(this)}
         />
       )
-    });
+    }.bind(this));
 
     return (
     	<div className="layout">

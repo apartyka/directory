@@ -1,4 +1,4 @@
-const React = require('react');
+var React = require('react');
 
 class SearchSortProvider extends React.Component {
   // Call orderBy function as prop, pass along the target of the click and order

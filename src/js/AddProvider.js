@@ -1,4 +1,4 @@
-const React = require('react');
+var React = require('react');
 
 class AddProvider extends React.Component {
   // Toggles display of the form via a passed function prop
