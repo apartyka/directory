@@ -62,7 +62,6 @@ class AddProvider extends React.Component {
                   className="form-control"
                   id="fName"
                   ref="fName"
-                  placeholder="First Name"
                   required
                 />
               </div>
@@ -77,7 +76,6 @@ class AddProvider extends React.Component {
                   className="form-control"
                   id="lName"
                   ref="lName"
-                  placeholder="Last Name"
                   required
                 />
               </div>
@@ -120,7 +118,6 @@ class AddProvider extends React.Component {
                 type="text"
                 className="form-control"
                 id="practiceName"
-                placeholder="Practice Name"
                 ref="practiceName"
               />
               </div>
