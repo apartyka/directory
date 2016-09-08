@@ -11,6 +11,13 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+/* Turn off Chromes ridiculous yellow autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 header .page-header {
   border: none;
   margin: 0;
