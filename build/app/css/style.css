@@ -21,11 +21,30 @@ input:-webkit-autofill:focus {
 header .page-header {
   border: none;
   margin: 0;
+  position: relative;
+}
+
+.page-header h1 {
+  margin-left: 60px;
+}
+
+.page-header svg {
+  left: 0;
+  position: absolute;
+  top: -12px;
+  width: 60px;
 }
 
 @media (max-width: 768px) {
+  .page-header svg {
+    top: -5px;
+    width: 40px;
+  }
+
   .page-header h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
+    margin-left: 30px;
+    padding-top: 3px;
   }
 }
 
