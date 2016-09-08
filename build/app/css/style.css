@@ -29,10 +29,6 @@ header .page-header {
   }
 }
 
-.layout h5 {
-  padding: 10px 15px;
-}
-
 .layout h6 {
   color: #969696;
 }
@@ -48,6 +44,10 @@ header .page-header {
   .navbar-default {
     text-align: center;
   }
+}
+
+.add-provider .panel-heading {
+  padding: 7px;
 }
 
 .add-provider .panel-heading,
@@ -80,7 +80,7 @@ header .page-header {
   border-radius: 4px;
   margin-bottom: 40px;
   max-height: 480px;
-  overflow-y: scroll;  
+  overflow-y: scroll;
 }
 
 .provider {
@@ -109,6 +109,7 @@ header .page-header {
 }
 
 .provider:hover {
+  transition: all 0.2s ease-in;
   background-color: #d9edf7;
 }
 
@@ -137,4 +138,12 @@ header .page-header {
     float: none !important;
     display: inherit;
   }
+}
+
+.search-providers {
+  margin-bottom: 20px
+}
+
+.search-providers .dropdown-toggle {
+  transition: all 0.2s ease-in;
 }

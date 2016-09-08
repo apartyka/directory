@@ -4,6 +4,7 @@ const _ = require('lodash');
 
 const AddProvider = require('./AddProvider');
 const ProviderListItem = require('./ProviderList');
+const SearchSortProvider = require('./SearchSortProvider');
 
 const PROVIDERS = [
   {
@@ -108,7 +109,7 @@ class App extends React.Component {
           />
         </div>
         <div className="col-sm-8">
-          <h5>Provider List</h5>
+          <SearchSortProvider />
           <ul className="providers media-list">
             {providers}
           </ul>
