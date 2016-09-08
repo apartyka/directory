@@ -118,7 +118,10 @@ class App extends React.Component {
           />
         </div>
         <div className="col-sm-8">
-          <SearchSortProvider />
+          <SearchSortProvider
+            orderBy={this.state.orderBy}
+            orderDir={this.state.orderDir}
+          />
           <ul className="providers media-list">
             {providers}
           </ul>

@@ -2,6 +2,9 @@ const React = require('react');
 
 class SearchSortProvider extends React.Component {
   render() {
+    var orderBy = this.props.orderBy;
+    var orderDir = this.props.orderDir;
+
     return(
       <div className="search-providers">
         <div className="input-group">
@@ -23,17 +26,20 @@ class SearchSortProvider extends React.Component {
             </button>
               <ul className="dropdown-menu dropdown-menu-right">
                 <li>
-                  <a href="#">Last Name</a>
+                  <a href="#">Last Name {(orderBy === 'last_name') ? <span className="glyphicon glyphicon-ok"></span>: null}</a>
                 </li>
                 <li>
-                  <a href="#">Specialty</a>
+                  <a href="#">Specialty {(orderBy === 'specialty') ? <span className="glyphicon glyphicon-ok"></span>: null}</a>
+                </li>
+                <li>
+                  <a href="#">Practice Name {(orderBy === 'practice_name') ? <span className="glyphicon glyphicon-ok"></span>: null}</a>
                 </li>
                 <li role="separator" className="divider"></li>
                 <li>
-                  <a href="#">Asc</a>
+                  <a href="#">Asc {(orderDir === 'asc') ? <span className="glyphicon glyphicon-ok"></span>: null}</a>
                 </li>
                 <li>
-                  <a href="#">Desc</a>
+                  <a href="#">Desc {(orderDir === 'desc') ? <span className="glyphicon glyphicon-ok"></span>: null}</a>
                 </li>
               </ul>
           </div>
