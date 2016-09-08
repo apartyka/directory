@@ -146,3 +146,10 @@ header .page-header {
 .search-providers .dropdown-toggle {
   transition: all 0.2s ease-in;
 }
+
+@media (max-width: 500px) {
+  .search-providers .form-control {
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+  }
+}
