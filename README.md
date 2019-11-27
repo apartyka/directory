@@ -1,4 +1,4 @@
-# updox-ui-code-challenge
+# directory
 The home for files submitted to Updox's UI coding challenge
 
 ###Steps to get up and running:
