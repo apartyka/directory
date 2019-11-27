@@ -1,6 +1,3 @@
-# directory
-The home for files submitted to Updox's UI coding challenge
-
 ###Steps to get up and running:
 * clone this repo
 * using terminal or other command line tool, `cd` to your chosen project directory
